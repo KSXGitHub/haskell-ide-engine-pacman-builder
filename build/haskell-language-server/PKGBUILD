@@ -2,7 +2,7 @@ pkgname='haskell-language-server'
 pkgver='0.5.1'
 pkgrel='1'
 license=('Apache')
-makedepends=('stack')
+makedepends=('git' 'stack')
 source=(
   "$pkgname-$pkgver::git+https://github.com/haskell/haskell-language-server.git"
 )
