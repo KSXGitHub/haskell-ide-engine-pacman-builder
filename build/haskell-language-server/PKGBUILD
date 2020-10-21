@@ -1,0 +1,29 @@
+pkgname='haskell-language-server'
+pkgver='0.5.1'
+pkgrel='1'
+license=('Apache')
+makedepends=('stack')
+source=(
+  "$pkgname-$pkgver::git+https://github.com/haskell/haskell-language-server.git"
+)
+sha1sums=(
+  'SKIP'
+)
+
+prepare() {
+  cd "$srcdir/$pkgname-$pkgver"
+  git fetch origin
+  git checkout "$pkgver"
+  git submodule update --init --recursive
+}
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  stack build --stack-yaml=stack-8.8.2.yaml
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  stack --local-bin-path "$pkgdir/usr/bin/" install
+}

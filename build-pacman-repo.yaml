@@ -1,0 +1,5 @@
+global-settings:
+  repository: pacman-repo/repo/khai.db.tar.gz
+  container: build
+members:
+  - directory: haskell-language-server
