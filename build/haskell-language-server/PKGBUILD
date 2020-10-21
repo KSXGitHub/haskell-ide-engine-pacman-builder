@@ -2,6 +2,7 @@ pkgname='haskell-language-server'
 pkgver='0.5.1'
 pkgrel='1'
 pkgdesc='Integration point for ghcide and haskell-ide-engine. One IDE to rule them all.'
+arch=('x86_64')
 license=('Apache')
 makedepends=('git' 'stack')
 source=(
