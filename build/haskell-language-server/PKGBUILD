@@ -17,6 +17,8 @@ prepare() {
   git fetch origin
   git checkout "$pkgver"
   git submodule update --init --recursive
+  export TAR_OPTIONS=--no-same-owner
+  stack setup --allow-different-user
 }
 
 build() {
